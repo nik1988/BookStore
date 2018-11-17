@@ -1,0 +1,85 @@
+<div class="container">
+
+  <a style = "text-decoration: none;"routerLink="/bookList">
+    <span><i class="fa fa-long-arrow-left"></i> Back</span></a>
+  <span> / </span>
+  <a style="cursor:pointer" [routerLink]="'/editBook/'+book.id">Edit</a>
+
+  <mat-grid-list [cols]=9 rowHeight=100px>
+    <mat-grid-tile [colspan]="3" [rowspan]="5">
+      <br>
+      <mat-card class="mat-elevation-z4">
+        <img mat-card-image [src]="'http://localhost:8282/image/book/'+book.id +'.png'"/>
+
+        <mat-card-content>
+          <p>{{book.description}}</p>
+        </mat-card-content>
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="6" [rowspan]="1">
+      <h3> {{book.title}}</h3>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" [rowspan]="3">
+
+      <mat-list>
+        <mat-list-item>
+          <p><strong> Author:</strong>{{book.author}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> Publisher:</strong>{{book.publisher}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> Publication Date:</strong>{{book.publicationDate}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> Language:</strong>{{book.language}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> Category:</strong>{{book.category}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> Pages:</strong>{{book.numberOfPages}}</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile [colspan]="3" [rowspan]="3">
+      <mat-list>
+        <mat-list-item>
+          <p><strong> Format:</strong>{{book.format}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> ISBN:</strong>{{book.isbn}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> Shipping Weight:</strong>{{book.shippingWeight}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> List Price:</strong>{{book.listPrice}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> Our Price:</strong>{{book.ourPrice}}</p>
+        </mat-list-item>
+
+        <mat-list-item>
+          <p><strong> Numbers In Stock:</strong>{{book.inStockNumber}}</p>
+        </mat-list-item>
+
+      </mat-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

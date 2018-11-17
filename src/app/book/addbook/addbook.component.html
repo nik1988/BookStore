@@ -1,0 +1,273 @@
+<div class="container">
+
+  <mat-card class="my-card">
+    <mat-card-header>
+      <mat-card-title><h3>Add Book Details
+        <span style="font-size:small;">* is required field
+    </span>
+      </h3>
+      </mat-card-title>
+    </mat-card-header>
+
+
+    <form (ngSubmit) = "addBook()">
+      <mat-card-content>
+        <table class=full-width>
+
+
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  [(ngModel)]="newbook.title"
+                  name="title"
+                  required
+                  placeholder="Title">
+              </mat-form-field>
+            </td>
+          </tr>
+
+
+          <div fxLayout="column">
+            <tr>
+              <td>
+
+                <mat-form-field class="half-width">
+                  <input
+                    matInput
+                    [(ngModel)]="newbook.author"
+                    name="author"
+                    placeholder="Author Name"
+                    required>
+                </mat-form-field>
+              </td>
+
+              <td>
+
+                <mat-form-field class="half-width">
+                  <input
+                    matInput
+                    [(ngModel)]="newbook.publisher"
+                    name=publisher
+                    required
+                    placeholder="Publisher Name">
+                </mat-form-field>
+
+              </td>
+            </tr>
+          </div>
+
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+
+                <input matInput [matDatepicker]="picker"
+                       placeholder="Publication Date"
+                       name="publicationDate"
+                       [(ngModel)]="newbook.publicationDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+
+              </mat-form-field>
+
+            </td>
+          </tr>
+          <div fxLayout="column">
+            <tr>
+              <td>
+                <mat-form-field class="half-width">
+                  <mat-select
+                    placeholder="Select Category"
+                    name="category"
+                    [(ngModel)]="newbook.category">
+
+                    <mat-option value="Management"> Management</mat-option>
+                    <mat-option value="Fiction"> Fiction</mat-option>
+                    <mat-option value="Engineering">Engineering</mat-option>
+                    <mat-option value="Programming"> Programming</mat-option>
+                    <mat-option value="Arts &amp; Literature">Arts &amp; Literature</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+
+              <td>
+                <mat-form-field class="half-width">
+
+                  <mat-select
+                    placeholder="Format"
+                    name="Format"
+                    [(ngModel)]="newbook.format">
+
+                    <mat-option value="paperback">Paperback</mat-option>
+                    <mat-option value="hardcover">Hardcover</mat-option>
+                  </mat-select>
+
+                </mat-form-field>
+              </td>
+            </tr>
+          </div>
+
+          <div fxLayout="column">
+            <tr>
+              <td>
+
+                <mat-form-field class="half-width">
+
+                  <input matInput
+                         name="pageNumber"
+                         type="number"
+                         [(ngModel)]="newbook.numberOfPages"
+                         placeholder="Number of Pages"
+                         step="1">
+
+                </mat-form-field>
+
+              </td>
+
+              <td>
+
+                <mat-form-field class="half-width">
+
+                  <input matInput
+                         name="isbn"
+                         type="text"
+                         [(ngModel)]="newbook.isbn"
+                         placeholder="ISBN"
+                         required>
+
+                </mat-form-field>
+              </td>
+            </tr>
+          </div>
+
+          <div fxLayout="column">
+            <tr>
+              <td>
+                <mat-form-field class="half-width">
+
+                  <input matInput
+                         type=number
+                         name="listPrice"
+                         [(ngModel)]="newbook.listPrice"
+                         placeholder="List Price"
+                         required
+                         step="0.01">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="half-width">
+
+                  <input matInput
+                         type=number
+                         name="ourPrice"
+                         [(ngModel)]="newbook.ourPrice"
+                         placeholder="Our Price"
+                         required
+                         step="0.01">
+                </mat-form-field>
+              </td>
+            </tr>
+          </div>
+
+          <div fxLayout="column">
+            <tr>
+              <td>
+                <mat-form-field class="half-width">
+                  <input matInput
+                         type=number
+                         name="shippingWeight"
+                         [(ngModel)]="newbook.shippingWeight"
+                         placeholder="Shipping Weight"
+                         required
+                         step="0.01">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="half-width">
+                  <mat-select
+                    name="language"
+                    placeholder="Language"
+                    [(ngModel)]="newbook.language">
+                    <mat-option value="english"> English</mat-option>
+                    <mat-option value="spanish">Spanish</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+          </div>
+
+          <div fxLayout="column">
+            <tr>
+              <td>
+                <mat-form-field class="half-width">
+                  <input matInput
+                         type=number
+                         name="inStockNumber"
+                         [(ngModel)]="newbook.inStockNumber"
+                         placeholder="Numbers in Stock"
+                         required
+                         step="0.01">
+                </mat-form-field>
+              </td>
+              <td>
+
+                <mat-slide-toggle
+                  [checked]="checked"
+                  [disabled]="disabled"
+                  [(ngModel)]="newbook.active"
+                  name="active"
+                  [color]="'primary'">Active
+                </mat-slide-toggle>
+
+              </td>
+            </tr>
+          </div>
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+            <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      [(ngModel)]="newbook.description"
+                      name="description"
+                      placeholder="Book Description"
+                      required>
+
+            </textarea>
+
+              </mat-form-field>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+
+              <button mat-raised-button
+                      class = "mat-active"
+                      type = "button"
+                      (click) = "uploadButton.click()">Upload Image</button>
+              {{uploadButton.value}}
+              <input type="file"
+                     style = "display:none;"
+                     name="bookImage"
+                     (change) = "selectFile($event)"
+                     #uploadButton>
+            </td>
+
+          </tr>
+        </table>
+      </mat-card-content>
+
+      <mat-card-actions>
+
+        <button mat-raised-button class="mat-primary" type="submit" style = "margin-left:12px;">Add Book</button>
+        &nbsp;
+        <button mat-raised-button class="mat-warn">Cancel</button>
+
+      </mat-card-actions>
+    </form>
+
+  </mat-card>
+</div>

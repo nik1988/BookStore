@@ -1,0 +1,12 @@
+<div mat-dialog-content style = "text-align: center">
+
+  <p style = "vertical-align: center"> <strong>Do you want to delete {{data.name}} ? </strong></p>
+
+</div>
+
+<div mat-dialog-actions>
+
+  <button mat-button (click)="dialogRef.close('ok')">OK</button>
+  <button mat-button (click) = "onCancel()">Cancel</button>
+
+</div>
