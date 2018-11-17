@@ -32,9 +32,5 @@ export class BookListService {
     );
 
   }
-
-  testGit(){
-    
-  }
-
+  
 }
